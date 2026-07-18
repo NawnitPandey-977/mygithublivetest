@@ -1,524 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grade 9 Science: Easy A+ Exam Guide</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #f8fafc;
-            --primary-dark: #0f172a;
-            --teal-accent: #0d9488;
-            --blue-accent: #2563eb;
-            --amber-accent: #d97706;
-            --card-white: #ffffff;
-            --text-dark: #1e293b;
-            --text-light: #475569;
-            --border-light: #e2e8f0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<title>My 2-Day Holiday Study Timetable</title>
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-dark);
-            line-height: 1.5;
-            padding: 15px;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        .container {
-            max-width: 850px;
-            margin: 0 auto;
-        }
+<style>
 
-        /* Header Banner */
-        header {
-            background: linear-gradient(135deg, #0f172a 0%, #0d9488 100%);
-            color: white;
-            padding: 30px 20px;
-            border-radius: 12px;
-            text-align: center;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 10px rgba(13, 148, 136, 0.15);
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
 
-        header h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
+body{
+background:linear-gradient(135deg,#4facfe,#00f2fe);
+padding:25px;
+}
 
-        header p {
-            font-size: 1rem;
-            color: #ccfbf1;
-            font-weight: 300;
-        }
+.container{
+max-width:1000px;
+margin:auto;
+}
 
-        .badge {
-            display: inline-block;
-            background-color: #f59e0b;
-            color: #0f172a;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            margin-top: 10px;
-            text-transform: uppercase;
-        }
+.header{
+background:white;
+padding:30px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+margin-bottom:25px;
+}
 
-        /* Quick Navigation Bar */
-        .quick-nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 25px;
-        }
+.header h1{
+font-size:34px;
+color:#1565c0;
+}
 
-        .nav-btn {
-            flex: 1;
-            min-width: 110px;
-            background-color: var(--card-white);
-            padding: 10px;
-            text-align: center;
-            border-radius: 8px;
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            font-size: 0.8rem;
-            border: 1px solid var(--border-light);
-            transition: all 0.2s;
-        }
+.header p{
+margin-top:10px;
+font-size:18px;
+color:#666;
+}
 
-        .nav-btn:hover {
-            border-color: var(--teal-accent);
-            background-color: #f0fdfa;
-            color: var(--teal-accent);
-        }
+.card{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+margin-bottom:25px;
+}
 
-        /* Chapter Sections */
-        .chapter-box {
-            background-color: var(--card-white);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            border-left: 5px solid var(--teal-accent);
-        }
+.card h2{
+color:#0d47a1;
+margin-bottom:20px;
+border-left:6px solid #2196f3;
+padding-left:12px;
+}
 
-        .chapter-box:nth-of-type(even) {
-            border-left-color: var(--blue-accent);
-        }
+table{
+width:100%;
+border-collapse:collapse;
+}
 
-        .chapter-label {
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: #64748b;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+th{
+background:#2196f3;
+color:white;
+padding:15px;
+font-size:17px;
+}
 
-        .chapter-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-            margin-bottom: 15px;
-        }
+td{
+padding:14px;
+border-bottom:1px solid #ddd;
+font-size:15px;
+}
 
-        h3 {
-            font-size: 1rem;
-            color: var(--primary-dark);
-            margin: 15px 0 8px 0;
-            font-weight: 600;
-        }
+tr:hover{
+background:#f5fbff;
+transition:.3s;
+}
 
-        p {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-bottom: 10px;
-        }
+.time{
+font-weight:600;
+color:#1565c0;
+}
 
-        strong {
-            font-weight: 600;
-            color: var(--primary-dark);
-        }
+.task{
+color:#444;
+}
 
-        /* Bullet Points */
-        ul {
-            list-style: none;
-            padding-left: 5px;
-            margin-bottom: 12px;
-        }
+.footer{
+background:white;
+padding:20px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
 
-        ul li {
-            position: relative;
-            padding-left: 18px;
-            margin-bottom: 6px;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
+.quote{
+font-size:20px;
+font-weight:600;
+color:#1565c0;
+margin-bottom:10px;
+}
 
-        ul li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--teal-accent);
-            font-weight: 700;
-            font-size: 1.1rem;
-            line-height: 1;
-        }
+.goal{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:20px;
+}
 
-        .chapter-box:nth-of-type(even) ul li::before {
-            color: var(--blue-accent);
-        }
+.goal span{
+background:#2196f3;
+color:white;
+padding:10px 16px;
+border-radius:30px;
+font-size:14px;
+}
 
-        /* Highlight Boxes */
-        .exam-tip {
-            background-color: #fffbeb;
-            border: 1px solid #fde68a;
-            border-left: 4px solid #d97706;
-            padding: 12px;
-            border-radius: 8px;
-            margin: 12px 0;
-        }
+@media(max-width:700px){
 
-        .exam-tip h4 {
-            color: #b45309;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            margin-bottom: 2px;
-        }
+.header h1{
+font-size:28px;
+}
 
-        .exam-tip p {
-            margin-bottom: 0;
-            font-size: 0.85rem;
-            color: #78350f;
-        }
+table{
+font-size:13px;
+}
 
-        /* Simple Formula Box */
-        .formula-box {
-            text-align: center;
-            margin: 10px 0;
-            padding: 10px;
-            background-color: #f8fafc;
-            border-radius: 6px;
-            border: 1px dashed var(--border-light);
-        }
+th,td{
+padding:10px;
+}
 
-        .formula-text {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--primary-dark);
-        }
+}
 
-        /* Clean Simple Tables */
-        .table-container {
-            width: 100%;
-            overflow-x: auto;
-            margin: 12px 0;
-            border: 1px solid var(--border-light);
-            border-radius: 8px;
-        }
+</style>
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-            font-size: 0.85rem;
-        }
-
-        th {
-            background-color: #f1f5f9;
-            color: var(--primary-dark);
-            font-weight: 600;
-            padding: 10px;
-            border-bottom: 2px solid var(--border-light);
-        }
-
-        td {
-            padding: 10px;
-            border-bottom: 1px solid var(--border-light);
-            background-color: #ffffff;
-            color: var(--text-light);
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        tr:nth-child(even) td {
-            background-color: #f8fafc;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            color: #94a3b8;
-            font-size: 0.8rem;
-            margin-top: 10px;
-        }
-    </style>
 </head>
 <body>
 
-    <div class="container">
-        
-        <header>
-            <h1>Grade 9 Science & Technology</h1>
-            <p>Simple & Easy A+ Study Guide (Chapters 1–6)</p>
-            <div class="badge">GPA 4.0 Goal</div>
-        </header>
+<div class="container">
 
-        <nav class="quick-nav">
-            <a href="#ch1" class="nav-btn">Ch 1: Science Study</a>
-            <a href="#ch2" class="nav-btn">Ch 2: Classification</a>
-            <a href="#ch3" class="nav-btn">Ch 3: Mushroom</a>
-            <a href="#ch4" class="nav-btn">Ch 4: Evolution</a>
-            <a href="#ch5" class="nav-btn">Ch 5: Tissues & Nerves</a>
-            <a href="#ch6" class="nav-btn">Ch 6: Ecosystems</a>
-        </nav>
+<div class="header">
+<h1>📚 My 2-Day Holiday Timetable</h1>
+<p>Stay Focused • Stay Healthy • Achieve Your Goals</p>
+</div>
 
-        <section id="ch1" class="chapter-box">
-            <span class="chapter-label">Chapter 1</span>
-            <h2 class="chapter-title">Scientific Study</h2>
-            
-            <h3>6 Steps of Scientific Learning</h3>
-            <p>Scientists solve problems using these 6 simple steps in order:</p>
-            <ul>
-                <li><strong>Observation:</strong> Noticing a problem or seeing something interesting in nature.</li>
-                <li><strong>Hypothesis:</strong> Making a smart, logical guess about the answer.</li>
-                <li><strong>Experiment:</strong> Testing your guess by doing practical experiments.</li>
-                <li><strong>Result & Conclusion:</strong> Checking the data and writing down what happened.</li>
-                <li><strong>Hypothesis Testing:</strong> Finding out if your initial guess was correct or wrong.</li>
-                <li><strong>Reporting:</strong> Sharing your final results with others.</li>
-            </ul>
+<div class="card">
 
-            <h3>Scientific Notation (Powers of 10)</h3>
-            <p>Used to write very big numbers or very small numbers easily:</p>
-            <div class="formula-box">
-                <span class="formula-text">Number = m × 10<sup>n</sup></span><br>
-                <small>(The first number 'm' must always be between 1 and 9)</small>
-            </div>
-            <ul>
-                <li><strong>Big Numbers (Positive Power):</strong> Move the decimal point to the left. <br>Example: 150,000,000 km becomes <strong>1.5 × 10<sup>8</sup> km</strong>.</li>
-                <li><strong>Small Numbers (Negative Power):</strong> Move the decimal point to the right. <br>Example: 0.0000001 m becomes <strong>1.0 × 10<sup>-7</sup> m</strong>.</li>
-            </ul>
+<h2>🌞 Today (Starting 7:30 AM)</h2>
 
-            <h3>Least Count</h3>
-            <p>The <strong>Least Count</strong> is the smallest value that an instrument can measure accurately.</p>
-            <ul>
-                <li><strong>Normal Scale (Ruler):</strong> Can measure down to <strong>0.1 cm (or 1 mm)</strong>.</li>
-                <li><strong>Digital Stopwatch:</strong> Can measure down to <strong>0.01 seconds</strong>.</li>
-            </ul>
+<table>
 
-            <div class="exam-tip">
-                <h4>Exam Secret for A+</h4>
-                <p><strong>Question:</strong> Why do we repeat experiments many times and take the average?<br>
-                <strong>Answer:</strong> To avoid simple personal mistakes and get the most accurate result.</p>
-            </div>
-        </section>
+<tr>
+<th>Time</th>
+<th>Activity</th>
+</tr>
 
-        <section id="ch2" class="chapter-box">
-            <span class="chapter-label">Chapter 2</span>
-            <h2 class="chapter-title">Classification of Living Beings</h2>
-            
-            <h3>What is Classification?</h3>
-            <p>Grouping living things into different categories based on how similar they are. It helps us study them easily.</p>
+<tr><td class="time">7:30 - 8:00 AM</td><td class="task">🍳 Breakfast & Get Ready</td></tr>
+<tr><td class="time">8:00 - 9:30 AM</td><td class="task">📘 Science (Study One Chapter)</td></tr>
+<tr><td class="time">9:30 - 9:45 AM</td><td class="task">☕ Short Break</td></tr>
+<tr><td class="time">9:45 - 10:45 AM</td><td class="task">➗ Mathematics (20-25 questions)</td></tr>
+<tr><td class="time">10:45 - 11:15 AM</td><td class="task">💻 Computer practice (typing or MS Word)</td></tr>
+<tr><td class="time">11:15 - 12:00 PM</td><td class="task">📖 English Reading and vocabulary</td></tr>
+<tr><td class="time">12:00 - 1:00 PM</td><td class="task">🍛 Lunch & Rest</td></tr>
+<tr><td class="time">1:00 - 2:00 PM</td><td class="task">🇳🇵 Nepali</td></tr>
+<tr><td class="time">2:00 - 3:00 PM</td><td class="task">🌍 Social Studies / Health</td></tr>
+<tr><td class="time">3:00 - 4:00 PM</td><td class="task">🚶 Outdoor Walk / Games</td></tr>
+<tr><td class="time">4:00 - 5:00 PM</td><td class="task">📝 Science & Maths Revision</td></tr>
+<tr><td class="time">5:00 - 6:00 PM</td><td class="task">🍽 Dinner & Family Time</td></tr>
+<tr><td class="time">6:00 - 7:00 PM</td><td class="task">✍ Solve Practice Questions</td></tr>
+<tr><td class="time">7:00 - 8:00 PM</td><td class="task">🎥Watch Educational Video / Reading</td></tr>
+<tr><td class="time">8:00 - 9:00 PM</td><td class="task">🎒 Prepare for Tomorrow & Revision</td></tr>
+<tr><td class="time">9:30 PM</td><td class="task">😴 Sleep</td></tr>
 
-            <h3>Scientific Names (Binomial Nomenclature)</h3>
-            <p>Every living thing has a unique scientific name made of two words (started by Carolus Linnaeus):</p>
-            <ul>
-                <li><strong>First word:</strong> Genus name (Always starts with a Capital letter).</li>
-                <li><strong>Second word:</strong> Species name (Starts with a small letter).</li>
-                <li><em>Rule:</em> Underline both words separately when writing by hand (e.g., <u>Homo</u> <u>sapiens</u>).</li>
-            </ul>
+</table>
 
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Common Name</th>
-                            <th>Genus</th>
-                            <th>Species</th>
-                            <th>Scientific Name</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Human Being</td><td>Homo</td><td>sapiens</td><td><em>Homo sapiens</em></td></tr>
-                        <tr><td>Mustard Plant</td><td>Brassica</td><td>campestris</td><td><em>Brassica campestris</em></td></tr>
-                        <tr><td>Garden Pea</td><td>Pisum</td><td>sativum</td><td><em>Pisum sativum</em></td></tr>
-                        <tr><td>Frog</td><td>Rana</td><td>tigrina</td><td><em>Rana tigrina</em></td></tr>
-                    </tbody>
-                </table>
-            </div>
+</div>
 
-            <h3>The 7 Levels of Classification</h3>
-            <p>Living things are ranked from top to bottom: <br>
-            <strong>Kingdom → Phylum → Class → Order → Family → Genus → Species</strong></p>
+<div class="card">
 
-            <h3>The Five Kingdoms (Robert Whittaker)</h3>
-            <ul>
-                <li><strong>1. Monera:</strong> Tiny, single-celled organisms with no proper cell nucleus. (Example: Bacteria).</li>
-                <li><strong>2. Protista:</strong> Single-celled organisms with a proper nucleus. (Example: Amoeba).</li>
-                <li><strong>3. Fungi:</strong> Organisms that cannot make their own food and grow on dead matter. (Example: Mushroom, Yeast).</li>
-                <li><strong>4. Plantae:</strong> Green plants that make food using sunlight. (Example: Fern, Mango tree).</li>
-                <li><strong>5. Animalia:</strong> Animals that eat other things and can move. (Example: Fish, Human).</li>
-            </ul>
-        </section>
+<h2>🌅 Tomorrow</h2>
 
-        <section id="ch3" class="chapter-box">
-            <span class="chapter-label">Chapter 3</span>
-            <h2 class="chapter-title">Mushroom</h2>
-            
-            <h3>Parts of a Mushroom</h3>
-            <p>Mushrooms are fungi that grow on wet, dead leaves or wood. They have two main parts:</p>
-            <ul>
-                <li><strong>Mycelium:</strong> The hidden root-like structure under the ground made of tiny threads called <strong>hyphae</strong>. They absorb food from dead matter.</li>
-                <li><strong>Fruiting Body:</strong> The visible part above the ground. It has a stalk (<strong>stipe</strong>) and an umbrella-shaped cap (<strong>pileus</strong>). Under the cap, there are thin plates called <strong>gills</strong>.</li>
-            </ul>
+<table>
 
-            <h3>Life Cycle & Reproduction</h3>
-            <p>Mushrooms reproduce by creating tiny dust-like units called <strong>spores</strong>. Inside the gills, club-shaped cells called <strong>basidia</strong> grow exactly 4 haploid basidiospores. These spores float away in the wind to grow new mushrooms in dark, moist places.</p>
+<tr>
+<th>Time</th>
+<th>Activity</th>
+</tr>
 
-            <div class="exam-tip">
-                <h4>Edible vs. Poisonous Mushrooms</h4>
-                <p><strong>Edible (Safe to Eat):</strong> White Button mushroom (<em>Agaricus bisporus</em>). They are rich in healthy vitamins, proteins, and minerals.</p>
-                <p><strong>Poisonous (Danger!):</strong> Wild mushrooms with bright colors (like red caps), a ring on the stalk, or a cup-like base (volva). Never eat wild mushrooms as they can cause death.</p>
-            </div>
-        </section>
+<tr><td class="time">5:00 - 6:00 AM</td><td class="task">🌄 Wake Up, Exercise & Freshen Up</td></tr>
+<tr><td class="time">6:00 - 7:30 AM</td><td class="task">➗ Mathematics</td></tr>
+<tr><td class="time">7:30 - 8:00 AM</td><td class="task">🍳 Breakfast</td></tr>
+<tr><td class="time">8:00 - 9:30 AM</td><td class="task">📘 Science</td></tr>
+<tr><td class="time">9:30 - 10:30 AM</td><td class="task">📖 English</td></tr>
+<tr><td class="time">10:30 - 11:30 AM</td><td class="task">💻 Computer Skills</td></tr>
+<tr><td class="time">11:30 - 1:00 PM</td><td class="task">🍛 Lunch & Rest</td></tr>
+<tr><td class="time">1:00 - 2:00 PM</td><td class="task">🇳🇵 Nepali</td></tr>
+<tr><td class="time">2:00 - 3:00 PM</td><td class="task">🌍 Social Studies</td></tr>
+<tr><td class="time">3:00 - 4:00 PM</td><td class="task">⚽ Outdoor Activity</td></tr>
+<tr><td class="time">4:00 - 5:00 PM</td><td class="task">📄 Solve One Sample Paper</td></tr>
+<tr><td class="time">5:00 - 6:00 PM</td><td class="task">🍽 Dinner</td></tr>
+<tr><td class="time">6:00 - 7:00 PM</td><td class="task">✅ Review Mistakes</td></tr>
+<tr><td class="time">7:00 - 8:00 PM</td><td class="task">📚 Reading / Educational Videos</td></tr>
+<tr><td class="time">9:30 PM</td><td class="task">😴 Sleep</td></tr>
 
-        <section id="ch4" class="chapter-box">
-            <span class="chapter-label">Chapter 4</span>
-            <h2 class="chapter-title">Evolution</h2>
-            
-            <h3>What is Evolution?</h3>
-            <p>The very slow and continuous process by which simple ancient living things changed into complex modern living things over millions of years.</p>
+</table>
 
-            <h3>Evidences (Proofs) of Evolution</h3>
-            <ul>
-                <li><strong>1. Fossils:</strong> Remains of dead ancient plants and animals trapped inside rocks. Older, simpler fossils are found in deep rock layers; newer, complex ones are on top.</li>
-                <li><strong>2. Homologous Organs:</strong> Organs that look similar inside and share a common ancestor, but do different jobs now. (Example: Human arm, Bat wing, Horse front leg).</li>
-                <li><strong>3. Analogous Organs:</strong> Organs that look different inside but do the exact same job. (Example: Wing of a butterfly and wing of a bird).</li>
-                <li><strong>4. Vestigial Organs:</strong> Useless, tiny body parts left over from our ancestors. (Example: Appendix and wisdom teeth in humans).</li>
-            </ul>
+</div>
 
-            <h3>Main Theories of Evolution</h3>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Theory Name</th>
-                            <th>Scientist</th>
-                            <th>Main Idea</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Lamarckism</strong></td>
-                            <td>Jean Lamarck</td>
-                            <td>Body parts used more become larger; parts not used disappear. These changes pass to children.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Darwinism</strong></td>
-                            <td>Charles Darwin</td>
-                            <td>Living things fight for food and space. Nature selects the strongest or fittest to survive (<strong>Natural Selection</strong>).</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+<div class="footer">
 
-        <section id="ch5" class="chapter-box">
-            <span class="chapter-label">Chapter 5</span>
-            <h2 class="chapter-title">Body Structure and Life Process</h2>
-            
-            <h3>Tissues (Groups of Cells)</h3>
-            <p>A tissue is a group of similar cells working together to perform a single job.</p>
-            <ul>
-                <li><strong>Plant Tissues:</strong> <em>Meristematic</em> (growing tissues found at root/shoot tips) and <em>Permanent</em> (like Xylem which carries water, and Phloem which carries food).</li>
-                <li><strong>Animal Tissues:</strong> <em>Epithelial</em> (skin protection), <em>Muscular</em> (movement), <em>Nervous</em> (signals), and <em>Connective</em> (Blood and Bone).</li>
-            </ul>
+<div class="quote">
+🌟 "Success is built one focused hour at a time."
+</div>
 
-            <h3>The Human Brain</h3>
-            <ul>
-                <li><strong>Cerebrum:</strong> The biggest part. Controls thinking, memory, speech, learning, and senses.</li>
-                <li><strong>Cerebellum:</strong> Found at the back. Controls body balance, walking, and running.</li>
-                <li><strong>Medulla Oblongata:</strong> The brain stem. Controls automatic actions like heartbeat, breathing, and swallowing.</li>
-            </ul>
+<h3 style="margin-top:20px;color:#1565c0;">🎯 Holiday Goals</h3>
 
-            <h3>Hormones and Endocrine Glands</h3>
-            <p>Glands make chemical messengers called <strong>Hormones</strong> that travel in blood to control our bodies:</p>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Gland Name</th>
-                            <th>Location</th>
-                            <th>Hormone</th>
-                            <th>What it controls</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td><strong>Pituitary</strong></td><td>Brain</td><td>Growth Hormone</td><td>Controls growth (Too little = Dwarfism)</td></tr>
-                        <tr><td><strong>Thyroid</strong></td><td>Neck</td><td>Thyroxine</td><td>Controls body energy (Lack of Iodine causes Goitre)</td></tr>
-                        <tr><td><strong>Pancreas</strong></td><td>Abdomen</td><td>Insulin</td><td>Controls blood sugar level (Lack causes Diabetes)</td></tr>
-                        <tr><td><strong>Adrenal</strong></td><td>Above Kidneys</td><td>Adrenaline</td><td>Prepares body for emergency (Fear/Anger)</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+<div class="goal">
 
-        <section id="ch6" class="chapter-box">
-            <span class="chapter-label">Chapter 6</span>
-            <h2 class="chapter-title">Nature and Environment</h2>
-            
-            <h3>What is an Ecosystem?</h3>
-            <p>A balance system where living things (**Biotic factors**) interact with non-living things (**Abiotic factors** like air, water, soil, and sunlight).</p>
+<span>📘 Complete Science</span>
+<span>➗ Solve 50 Maths Questions</span>
+<span>📖 English Reading</span>
+<span>💻 Computer Practice</span>
+<span>🚶 Exercise Daily</span>
+<span>😴 Sleep by 9:30 PM</span>
 
-            <h3>Living Groups (Biotic Components)</h3>
-            <ul>
-                <li><strong>Producers:</strong> Green plants that make their own food using sunlight.</li>
-                <li><strong>Consumers:</strong> Animals that eat plants or other animals. (Herbivores eat plants; Carnivores eat meat).</li>
-                <li><strong>Decomposers:</strong> Tiny bacteria and fungi that clean the earth by eating dead plants and animals and recycling nutrients back into the soil.</li>
-            </ul>
+</div>
 
-            <h3>Food Chains and Food Webs</h3>
-            <ul>
-                <li><strong>Food Chain:</strong> A simple linear line showing who eats whom.<br>
-                <em>Example:</em> Grass → Grasshopper → Frog → Snake → Hawk.</li>
-                <li><strong>Food Web:</strong> Many food chains joined together. It shows how animals have multiple choices for food in real life.</li>
-            </ul>
+</div>
 
-            <h3>Types of Interactions (Relationships)</h3>
-            <ul>
-                <li><strong>Mutualism (+/+):</strong> Both benefit. (Example: Bee and Flower—bee gets food, flower gets pollinated).</li>
-                <li><strong>Commensalism (+/0):</strong> One benefits, the other is unhurt. (Example: A spider building a web in a tree).</li>
-                <li><strong>Parasitism (+/-):</strong> One benefits, the other is harmed. (Example: Mosquitoes sucking human blood).</li>
-            </ul>
-        </section>
-
-        <div style="background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(59,130,246,0.2);">
-            <h3 style="color: white; margin-top: 0; font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 5px;">⭐ Super Simple A+ Exam Tips</h3>
-            <p style="color: #eff6ff; font-size: 0.85rem; margin-bottom: 0;">
-                1. Always write clear, short definitions.<br>
-                2. Use tables for differences (like Homologous vs. Analogous).<br>
-                3. Remember examples like <em>Amoeba</em>, <em>Mushroom</em>, or <em>Homo sapiens</em> to get extra marks!
-            </p>
-        </div>
-
-        <footer>
-            <p>© Grade 9 Science Master Study Guide. Simple Words for Big Results.</p>
-        </footer>
-
-    </div>
+</div>
 
 </body>
 </html>
