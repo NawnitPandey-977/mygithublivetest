@@ -1,242 +1,792 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>My 2-Day Holiday Study Timetable</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-body{
-background:linear-gradient(135deg,#4facfe,#00f2fe);
-padding:25px;
-}
-
-.container{
-max-width:1000px;
-margin:auto;
-}
-
-.header{
-background:white;
-padding:30px;
-border-radius:20px;
-text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,.2);
-margin-bottom:25px;
-}
-
-.header h1{
-font-size:34px;
-color:#1565c0;
-}
-
-.header p{
-margin-top:10px;
-font-size:18px;
-color:#666;
-}
-
-.card{
-background:white;
-padding:25px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.15);
-margin-bottom:25px;
-}
-
-.card h2{
-color:#0d47a1;
-margin-bottom:20px;
-border-left:6px solid #2196f3;
-padding-left:12px;
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-}
-
-th{
-background:#2196f3;
-color:white;
-padding:15px;
-font-size:17px;
-}
-
-td{
-padding:14px;
-border-bottom:1px solid #ddd;
-font-size:15px;
-}
-
-tr:hover{
-background:#f5fbff;
-transition:.3s;
-}
-
-.time{
-font-weight:600;
-color:#1565c0;
-}
-
-.task{
-color:#444;
-}
-
-.footer{
-background:white;
-padding:20px;
-border-radius:20px;
-text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,.15);
-}
-
-.quote{
-font-size:20px;
-font-weight:600;
-color:#1565c0;
-margin-bottom:10px;
-}
-
-.goal{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-margin-top:20px;
-}
-
-.goal span{
-background:#2196f3;
-color:white;
-padding:10px 16px;
-border-radius:30px;
-font-size:14px;
-}
-
-@media(max-width:700px){
-
-.header h1{
-font-size:28px;
-}
-
-table{
-font-size:13px;
-}
-
-th,td{
-padding:10px;
-}
-
-}
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Royal Taste Restaurant</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0d0d0d;
+      color: white;
+      overflow-x: hidden;
+    }
+    
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, .55);
+      backdrop-filter: blur(18px);
+      z-index: 1000;
+    }
+    
+    .logo {
+      font-size: 34px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: #FFD700;
+    }
+    
+    nav ul {
+      display: flex;
+      gap: 35px;
+      list-style: none;
+    }
+    
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: .3s;
+    }
+    
+    nav ul li a:hover {
+      color: #FFD700;
+    }
+    
+    .order-btn {
+      padding: 12px 28px;
+      background: linear-gradient(45deg, #ff9800, #ff3d00);
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 15px;
+      transition: .4s;
+    }
+    
+    .order-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 25px orange;
+    }
+    
+    /* HERO */
+    .hero {
+      height: 100vh;
+      background: url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80") center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, .65);
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 20px;
+    }
+    
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 75px;
+      color: #FFD700;
+      margin-bottom: 20px;
+    }
+    
+    .hero p {
+      font-size: 22px;
+      margin-bottom: 35px;
+      color: #eee;
+    }
+    
+    .hero button {
+      padding: 16px 42px;
+      border: none;
+      border-radius: 40px;
+      font-size: 18px;
+      font-weight: bold;
+      background: linear-gradient(45deg, #ff9800, #ff5722);
+      color: white;
+      cursor: pointer;
+      transition: .4s;
+    }
+    
+    .hero button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 35px orange;
+    }
+    
+    /* SECTIONS & GRIDS */
+    section {
+      padding: 100px 8%;
+    }
+    
+    .title {
+      text-align: center;
+      font-size: 45px;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 60px;
+      color: #FFD700;
+    }
+    
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 35px;
+    }
+    
+    .food-card {
+      background: rgba(255, 255, 255, .05);
+      border-radius: 22px;
+      overflow: hidden;
+      transition: .4s;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 25px rgba(0,0,0,.4);
+    }
+    
+    .food-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 15px 40px rgba(255,165,0,.5);
+    }
+    
+    .food-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    
+    .food-info {
+      padding: 22px;
+    }
+    
+    .food-info h3 {
+      font-size: 26px;
+      margin-bottom: 10px;
+      color: #FFD700;
+    }
+    
+    .food-info p {
+      color: #ddd;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .price {
+      font-size: 26px;
+      font-weight: bold;
+      color: #ff9800;
+    }
+    
+    .buy-btn {
+      padding: 10px 22px;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(45deg,#ff9800,#ff5722);
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
+      transition: .3s;
+    }
+    
+    .buy-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 20px orange;
+    }
+    
+    .star {
+      color: #FFD700;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    
+    /* FILTER & SEARCH */
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    
+    .filter-buttons button {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 30px;
+      background: #222;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: .4s;
+    }
+    
+    .filter-buttons button:hover,
+    .filter-buttons .active {
+      background: linear-gradient(45deg,#ff9800,#ff5722);
+      box-shadow: 0 0 20px orange;
+    }
+    
+    .search-box {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    
+    .search-box input {
+      width: 420px;
+      max-width: 90%;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 40px;
+      font-size: 16px;
+      outline: none;
+      background: #1b1b1b;
+      color: #fff;
+      box-shadow: 0 0 15px rgba(255,152,0,.25);
+    }
+    
+    .search-box input::placeholder {
+      color: #bbb;
+    }
+    
+    /* CHEF SECTION */
+    .chef-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 50px;
+    }
+    
+    .chef-image img {
+      width: 340px;
+      border-radius: 25px;
+      box-shadow: 0 10px 35px rgba(255,165,0,.4);
+      transition: .5s;
+    }
+    
+    .chef-image img:hover {
+      transform: scale(1.05);
+    }
+    
+    .chef-text {
+      max-width: 520px;
+    }
+    
+    .chef-text h3 {
+      font-size: 40px;
+      color: #FFD700;
+      margin-bottom: 15px;
+    }
+    
+    .chef-text p {
+      color: #ddd;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+    
+    .chef-stats {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 30px;
+    }
+    
+    .chef-stats h2 {
+      color: #ff9800;
+    }
+    
+    /* REVIEWS & GALLERY */
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    
+    .review-card {
+      background: rgba(255, 255, 255, .05);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      transition: .4s;
+      backdrop-filter: blur(12px);
+    }
+    
+    .review-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(255,165,0,.4);
+    }
+    
+    .review-card h3 {
+      color: #FFD700;
+      margin-bottom: 10px;
+    }
+    
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    
+    .gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 20px;
+      transition: .4s;
+      cursor: pointer;
+    }
+    
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(255,165,0,.5);
+    }
+    
+    /* CONTACT & FOOTER */
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 50px;
+    }
+    
+    .contact-info {
+      font-size: 18px;
+      line-height: 2;
+    }
+    
+    .contact-info h3 {
+      font-size: 35px;
+      color: #FFD700;
+      margin-bottom: 20px;
+    }
+    
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+      padding: 16px;
+      border: none;
+      border-radius: 12px;
+      background: #1f1f1f;
+      color: white;
+      font-size: 16px;
+      outline: none;
+    }
+    
+    .contact-form button {
+      padding: 16px;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(45deg,#ff9800,#ff5722);
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: .4s;
+    }
+    
+    .contact-form button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px orange;
+    }
+    
+    footer {
+      margin-top: 80px;
+      padding: 50px 20px;
+      text-align: center;
+      background: #111;
+    }
+    
+    footer h2 {
+      font-family: 'Playfair Display', serif;
+      color: #FFD700;
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+    
+    footer p {
+      color: #ccc;
+      margin: 10px 0;
+    }
+    
+    .social {
+      margin: 25px 0;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+    
+    .social a {
+      text-decoration: none;
+      color: white;
+      transition: .3s;
+    }
+    
+    .social a:hover {
+      color: #FFD700;
+    }
+    
+    #topBtn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 55px;
+      height: 55px;
+      border: none;
+      border-radius: 50%;
+      font-size: 22px;
+      background: #ff9800;
+      color: white;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 0 20px orange;
+      z-index: 1001;
+    }
+    
+    /* RESPONSIVE MEDIA QUERIES */
+    @media(max-width: 800px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media(max-width: 768px) {
+      nav ul {
+        display: none; /* Consider building a hamburger menu later */
+      }
+      .chef-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .chef-stats {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">Royal Taste</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#special">Special</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="order-btn" onclick="location.href='#contact'">Order Now</button>
+  </nav>
+  
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Experience Luxury Dining</h1>
+      <p>Fresh Ingredients • Delicious Meals • Premium Experience</p>
+      <button onclick="location.href='#menu'">Explore Menu</button>
+    </div>
+  </section>
+  
+  <!-- TODAY'S SPECIALS -->
+  <section id="special">
+    <h2 class="title">Today's Special</h2>
+    <div class="menu-grid">
+      <div class="food-card">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=900" alt="Italian Pizza">
+        <div class="food-info">
+          <h3>Italian Pizza</h3>
+          <div class="star">★★★★★</div>
+          <p>Cheesy handmade pizza with fresh vegetables and herbs.</p>
+          <div class="bottom">
+            <div class="price">$12</div>
+            <button class="buy-btn">Order</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=900" alt="Classic Burger">
+        <div class="food-info">
+          <h3>Classic Burger</h3>
+          <div class="star">★★★★★</div>
+          <p>Juicy beef burger with cheese, lettuce and crispy fries.</p>
+          <div class="bottom">
+            <div class="price">$10</div>
+            <button class="buy-btn">Order</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=900" alt="Healthy Salad">
+        <div class="food-info">
+          <h3>Healthy Salad</h3>
+          <div class="star">★★★★☆</div>
+          <p>Fresh vegetables with premium olive oil dressing.</p>
+          <div class="bottom">
+            <div class="price">$8</div>
+            <button class="buy-btn">Order</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card">
+        <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=900" alt="Grilled Steak">
+        <div class="food-info">
+          <h3>Grilled Steak</h3>
+          <div class="star">★★★★★</div>
+          <p>Perfectly grilled steak served with vegetables.</p>
+          <div class="bottom">
+            <div class="price">$24</div>
+            <button class="buy-btn">Order</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card">
+        <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=900" alt="Chicken Biryani">
+        <div class="food-info">
+          <h3>Chicken Biryani</h3>
+          <div class="star">★★★★★</div>
+          <p>Traditional biryani with aromatic rice and spices.</p>
+          <div class="bottom">
+            <div class="price">$15</div>
+            <button class="buy-btn">Order</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card">
+        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=900" alt="French Fries">
+        <div class="food-info">
+          <h3>French Fries</h3>
+          <div class="star">★★★★☆</div>
+          <p>Golden crispy fries served with tomato sauce.</p>
+          <div class="bottom">
+            <div class="price">$6</div>
+            <button class="buy-btn">Order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="container">
+  <!-- DELICIOUS MENU SECTION -->
+  <section id="menu">
+    <h2 class="title">Our Delicious Menu</h2>
+    <div class="filter-buttons">
+      <button class="active">All</button>
+      <button>Pizza</button>
+      <button>Burger</button>
+      <button>Chicken</button>
+      <button>Dessert</button>
+      <button>Drinks</button>
+    </div>
+    <div class="search-box">
+      <input type="text" placeholder="🔍 Search your favorite food...">
+    </div>
+    <div class="menu-grid">
+      <div class="food-card">
+        <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=900" alt="Chocolate Cake">
+        <div class="food-info">
+          <h3>Chocolate Cake</h3>
+          <div class="star">★★★★★</div>
+          <p>Soft chocolate cake with creamy frosting.</p>
+          <div class="bottom">
+            <div class="price">$9</div>
+            <button class="buy-btn">Order</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card">
+        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=900" alt="Fresh Juice">
+        <div class="food-info">
+          <h3>Fresh Juice</h3>
+          <div class="star">★★★★☆</div>
+          <p>Healthy mixed fruit juice served chilled.</p>
+          <div class="bottom">
+            <div class="price">$5</div>
+            <button class="buy-btn">Order</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card">
+        <img src="https://images.unsplash.com/photo-1525755662778-989d0524087e?w=900" alt="Ice Cream">
+        <div class="food-info">
+          <h3>Ice Cream</h3>
+          <div class="star">★★★★★</div>
+          <p>Vanilla ice cream topped with chocolate syrup.</p>
+          <div class="bottom">
+            <div class="price">$6</div>
+            <button class="buy-btn">Order</button>
+          </div>
+        </div>
+      </div>
+      <div class="food-card">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900" alt="Chicken Pasta">
+        <div class="food-info">
+          <h3>Chicken Pasta</h3>
+          <div class="star">★★★★★</div>
+          <p>Creamy pasta with grilled chicken and cheese.</p>
+          <div class="bottom">
+            <div class="price">$14</div>
+            <button class="buy-btn">Order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="header">
-<h1>📚 My 2-Day Holiday Timetable</h1>
-<p>Stay Focused • Stay Healthy • Achieve Your Goals</p>
-</div>
+  <!-- CHEF SECTION -->
+  <section id="chef">
+    <h2 class="title">👨‍🍳 Meet Our Master Chef</h2>
+    <div class="chef-container">
+      <div class="chef-image">
+        <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?w=800" alt="Chef Alexander">
+      </div>
+      <div class="chef-text">
+        <h3>Chef Alexander</h3>
+        <p>With over 15 years of experience, Chef Alexander creates delicious dishes using the freshest ingredients. Every meal is prepared with passion, creativity, and love.</p>
+        <div class="chef-stats">
+          <div>
+            <h2>15+</h2>
+            <p>Years Experience</p>
+          </div>
+          <div>
+            <h2>250+</h2>
+            <p>Recipes</p>
+          </div>
+          <div>
+            <h2>4.9★</h2>
+            <p>Customer Rating</p>
+          </div>
+        </div>
+        <button class="order-btn" onclick="location.href='#contact'">Book a Table</button>
+      </div>
+    </div>
+  </section>
 
-<div class="card">
+  <!-- REVIEWS -->
+  <section id="reviews">
+    <h2 class="title">⭐ Customer Reviews</h2>
+    <div class="review-grid">
+      <div class="review-card">
+        <h3>Emily Johnson</h3>
+        <p>★★★★★</p>
+        <p>"Absolutely delicious food and excellent service. I will definitely visit again!"</p>
+      </div>
+      <div class="review-card">
+        <h3>David Smith</h3>
+        <p>★★★★★</p>
+        <p>"Beautiful restaurant with premium quality food. Highly recommended."</p>
+      </div>
+      <div class="review-card">
+        <h3>Sophia Brown</h3>
+        <p>★★★★★</p>
+        <p>"The desserts were amazing and the staff were very friendly."</p>
+      </div>
+    </div>
+  </section>
 
-<h2>🌞 Today (Starting 7:30 AM)</h2>
+  <!-- GALLERY -->
+  <section id="gallery">
+    <h2 class="title">📸 Food Gallery</h2>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=900" alt="Gallery Pizza">
+      <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=900" alt="Gallery Italian Pizza">
+      <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=900" alt="Gallery Burger">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900" alt="Gallery Table Setting">
+      <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=900" alt="Gallery Salad">
+      <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=900" alt="Gallery Steak">
+    </div>
+  </section>
 
-<table>
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <h2 class="title">Contact Us</h2>
+    <div class="contact-container">
+      <div class="contact-info">
+        <h3>Royal Taste Restaurant</h3>
+        <p>📍 New Road, Kathmandu, Nepal</p>
+        <p>📞 +977 9800000000</p>
+        <p>📧 info@royaltaste.com</p>
+        <p>🕒 Open Daily: 9:00 AM - 10:00 PM</p>
+      </div>
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="6" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
 
-<tr>
-<th>Time</th>
-<th>Activity</th>
-</tr>
+  <!-- FOOTER -->
+  <footer>
+    <h2>Royal Taste Restaurant</h2>
+    <p>Serving happiness with every meal.</p>
+    <div class="social">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+      <a href="#">WhatsApp</a>
+    </div>
+    <p class="copyright">© 2026 Royal Taste Restaurant. All Rights Reserved.</p>
+  </footer>
 
-<tr><td class="time">7:30 - 8:00 AM</td><td class="task">🍳 Breakfast & Get Ready</td></tr>
-<tr><td class="time">8:00 - 9:30 AM</td><td class="task">📘 Science (Study One Chapter)</td></tr>
-<tr><td class="time">9:30 - 9:45 AM</td><td class="task">☕ Short Break</td></tr>
-<tr><td class="time">9:45 - 10:45 AM</td><td class="task">➗ Mathematics (20-25 questions)</td></tr>
-<tr><td class="time">10:45 - 11:15 AM</td><td class="task">💻 Computer practice (typing or MS Word)</td></tr>
-<tr><td class="time">11:15 - 12:00 PM</td><td class="task">📖 English Reading and vocabulary</td></tr>
-<tr><td class="time">12:00 - 1:00 PM</td><td class="task">🍛 Lunch & Rest</td></tr>
-<tr><td class="time">1:00 - 2:00 PM</td><td class="task">🇳🇵 Nepali</td></tr>
-<tr><td class="time">2:00 - 3:00 PM</td><td class="task">🌍 Social Studies / Health</td></tr>
-<tr><td class="time">3:00 - 4:00 PM</td><td class="task">🚶 Outdoor Walk / Games</td></tr>
-<tr><td class="time">4:00 - 5:00 PM</td><td class="task">📝 Science & Maths Revision</td></tr>
-<tr><td class="time">5:00 - 6:00 PM</td><td class="task">🍽 Dinner & Family Time</td></tr>
-<tr><td class="time">6:00 - 7:00 PM</td><td class="task">✍ Solve Practice Questions</td></tr>
-<tr><td class="time">7:00 - 8:00 PM</td><td class="task">🎥Watch Educational Video / Reading</td></tr>
-<tr><td class="time">8:00 - 9:00 PM</td><td class="task">🎒 Prepare for Tomorrow & Revision</td></tr>
-<tr><td class="time">9:30 PM</td><td class="task">😴 Sleep</td></tr>
+  <!-- SCROLL TO TOP -->
+  <button id="topBtn" title="Go to top">↑</button>
 
-</table>
+  <!-- JAVASCRIPT -->
+  <script>
+    const topBtn = document.getElementById("topBtn");
 
-</div>
+    window.onscroll = function() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none";
+      }
+    };
 
-<div class="card">
-
-<h2>🌅 Tomorrow</h2>
-
-<table>
-
-<tr>
-<th>Time</th>
-<th>Activity</th>
-</tr>
-
-<tr><td class="time">5:00 - 6:00 AM</td><td class="task">🌄 Wake Up, Exercise & Freshen Up</td></tr>
-<tr><td class="time">6:00 - 7:30 AM</td><td class="task">➗ Mathematics</td></tr>
-<tr><td class="time">7:30 - 8:00 AM</td><td class="task">🍳 Breakfast</td></tr>
-<tr><td class="time">8:00 - 9:30 AM</td><td class="task">📘 Science</td></tr>
-<tr><td class="time">9:30 - 10:30 AM</td><td class="task">📖 English</td></tr>
-<tr><td class="time">10:30 - 11:30 AM</td><td class="task">💻 Computer Skills</td></tr>
-<tr><td class="time">11:30 - 1:00 PM</td><td class="task">🍛 Lunch & Rest</td></tr>
-<tr><td class="time">1:00 - 2:00 PM</td><td class="task">🇳🇵 Nepali</td></tr>
-<tr><td class="time">2:00 - 3:00 PM</td><td class="task">🌍 Social Studies</td></tr>
-<tr><td class="time">3:00 - 4:00 PM</td><td class="task">⚽ Outdoor Activity</td></tr>
-<tr><td class="time">4:00 - 5:00 PM</td><td class="task">📄 Solve One Sample Paper</td></tr>
-<tr><td class="time">5:00 - 6:00 PM</td><td class="task">🍽 Dinner</td></tr>
-<tr><td class="time">6:00 - 7:00 PM</td><td class="task">✅ Review Mistakes</td></tr>
-<tr><td class="time">7:00 - 8:00 PM</td><td class="task">📚 Reading / Educational Videos</td></tr>
-<tr><td class="time">9:30 PM</td><td class="task">😴 Sleep</td></tr>
-
-</table>
-
-</div>
-
-<div class="footer">
-
-<div class="quote">
-🌟 "Success is built one focused hour at a time."
-</div>
-
-<h3 style="margin-top:20px;color:#1565c0;">🎯 Holiday Goals</h3>
-
-<div class="goal">
-
-<span>📘 Complete Science</span>
-<span>➗ Solve 50 Maths Questions</span>
-<span>📖 English Reading</span>
-<span>💻 Computer Practice</span>
-<span>🚶 Exercise Daily</span>
-<span>😴 Sleep by 9:30 PM</span>
-
-</div>
-
-</div>
-
-</div>
-
+    topBtn.onclick = function() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    };
+  </script>
 </body>
 </html>
