@@ -1,1776 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pandey Restaurant</title>
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome Icons for Social Media Logos -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  
-  <!-- KHALTI EMBEDDED WEB POPUP INTERACTION SDK -->
-  <script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.iff.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secure WiFi Password Viewer</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-    
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #0d0d0d;
-      color: white;
-      overflow-x: hidden;
-    }
-    
-    /* NAVBAR */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 18px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(0, 0, 0, .55);
-      backdrop-filter: blur(18px);
-      z-index: 1000;
-    }
-    
-    .logo {
-      font-size: 34px;
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      color: #FFD700;
-    }
-    
-    nav ul {
-      display: flex;
-      gap: 35px;
-      list-style: none;
-    }
-    
-    nav ul li a {
-      text-decoration: none;
-      color: white;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-    
-    nav ul li a:hover {
-      color: #FFD700;
-    }
-    
-    .nav-buttons {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    .order-btn {
-      padding: 12px 28px;
-      background: linear-gradient(45deg, #ff9800, #ff3d00);
-      border: none;
-      border-radius: 30px;
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-      font-size: 15px;
-      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
-    }
-    
-    .order-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px orange;
-    }
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
 
-    .order-btn:active {
-      transform: scale(0.95);
-      box-shadow: 0 0 10px orange;
-    }
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#4f46e5,#06b6d4);
+overflow:hidden;
+}
 
-    .cart-nav-btn {
-      background: #222;
-      border: 1px solid #ff9800;
-      color: white;
-      padding: 12px 18px;
-      border-radius: 30px;
-      cursor: pointer;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: 0.3s;
-    }
+.card{
+width:360px;
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(18px);
+padding:30px;
+border-radius:22px;
+box-shadow:0 15px 35px rgba(0,0,0,.35);
+color:#fff;
+animation:fade .5s;
+}
 
-    .cart-nav-btn:hover {
-      background: #ff9800;
-    }
-    
-    /* AUTH MODAL STYLING */
-    .auth-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(8px);
-      z-index: 2000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
-    }
+@keyframes fade{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
+}
 
-    .auth-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
+h2{
+text-align:center;
+margin-bottom:20px;
+}
 
-    .auth-container {
-      background: #151515;
-      border: 1px solid #ff9800;
-      border-radius: 24px;
-      width: 450px;
-      max-width: 90%;
-      padding: 40px 30px;
-      box-shadow: 0 15px 40px rgba(255, 152, 0, 0.2);
-      position: relative;
-      transform: translateY(-30px);
-      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
+input{
+width:100%;
+padding:13px;
+border:none;
+outline:none;
+border-radius:12px;
+margin-top:8px;
+font-size:15px;
+}
 
-    .auth-overlay.active .auth-container {
-      transform: translateY(0);
-    }
+button{
+width:100%;
+padding:13px;
+margin-top:18px;
+border:none;
+border-radius:12px;
+background:#fff;
+color:#2563eb;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+}
 
-    .close-auth {
-      position: absolute;
-      top: 20px;
-      right: 25px;
-      background: none;
-      border: none;
-      color: #aaa;
-      font-size: 28px;
-      cursor: pointer;
-      transition: color 0.2s;
-    }
+button:hover{
+transform:scale(1.03);
+}
 
-    .close-auth:hover {
-      color: #ff9800;
-    }
+#error{
+color:#ffb4b4;
+margin-top:10px;
+text-align:center;
+font-size:14px;
+}
 
-    .auth-logo {
-      text-align: center;
-      font-size: 28px;
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      color: #FFD700;
-      margin-bottom: 25px;
-    }
+#viewer{
+display:none;
+}
 
-    .auth-box {
-      display: none;
-      animation: fadeIn 0.4s ease forwards;
-    }
+.passwordBox{
+position:relative;
+}
 
-    .auth-box.active {
-      display: block;
-    }
+.passwordBox input{
+padding-right:85px;
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
+.toggle{
+position:absolute;
+right:15px;
+top:50%;
+transform:translateY(-50%);
+cursor:pointer;
+font-size:14px;
+font-weight:600;
+color:#2563eb;
+}
 
-    .auth-box h3 {
-      font-size: 22px;
-      margin-bottom: 20px;
-      text-align: center;
-      color: white;
-    }
-
-    .auth-form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .auth-input-group {
-      position: relative;
-    }
-
-    .auth-input-group i {
-      position: absolute;
-      left: 15px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #ff9800;
-    }
-
-    .auth-input-group input {
-      width: 100%;
-      padding: 14px 15px 14px 45px;
-      background: #222;
-      border: 1px solid #444;
-      border-radius: 12px;
-      color: white;
-      font-size: 15px;
-      outline: none;
-      transition: border-color 0.3s;
-    }
-
-    .auth-input-group input:focus {
-      border-color: #ff9800;
-    }
-
-    .auth-submit-btn {
-      padding: 14px;
-      border: none;
-      border-radius: 30px;
-      background: linear-gradient(45deg, #ff9800, #ff5722);
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 10px;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .auth-submit-btn:hover {
-      transform: scale(1.02);
-      box-shadow: 0 5px 15px rgba(255, 152, 0, 0.4);
-    }
-
-    .auth-switch-text {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 14px;
-      color: #aaa;
-    }
-
-    .auth-switch-text span {
-      color: #ff9800;
-      cursor: pointer;
-      font-weight: 600;
-      text-decoration: underline;
-    }
-    
-    /* HERO */
-    .hero {
-      height: 100vh;
-      background: url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80") center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-    }
-    
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, .65);
-    }
-    
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      padding: 20px;
-    }
-    
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 75px;
-      color: #FFD700;
-      margin-bottom: 20px;
-    }
-    
-    .hero p {
-      font-size: 22px;
-      margin-bottom: 35px;
-      color: #eee;
-    }
-    
-    .hero button {
-      padding: 16px 42px;
-      border: none;
-      border-radius: 40px;
-      font-size: 18px;
-      font-weight: bold;
-      background: linear-gradient(45deg, #ff9800, #ff5722);
-      color: white;
-      cursor: pointer;
-      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
-    }
-    
-    .hero button:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 35px orange;
-    }
-
-    .hero button:active {
-      transform: translateY(-1px) scale(0.97);
-    }
-    
-    /* SECTIONS & GRIDS */
-    section {
-      padding: 100px 8%;
-    }
-    
-    .title {
-      text-align: center;
-      font-size: 45px;
-      font-family: 'Playfair Display', serif;
-      margin-bottom: 60px;
-      color: #FFD700;
-    }
-    
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 35px;
-    }
-    
-    .food-card {
-      background: rgba(255, 255, 255, .05);
-      border-radius: 22px;
-      overflow: hidden;
-      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 10px 25px rgba(0,0,0,.4);
-    }
-    
-    .food-card:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 15px 40px rgba(255,165,0,.35);
-    }
-    
-    .food-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
-    
-    .food-info {
-      padding: 22px;
-    }
-    
-    .food-info h3 {
-      font-size: 26px;
-      margin-bottom: 10px;
-      color: #FFD700;
-    }
-    
-    .food-info p {
-      color: #ddd;
-      line-height: 1.6;
-      margin-bottom: 18px;
-    }
-    
-    .bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .price {
-      font-size: 22px;
-      font-weight: bold;
-      color: #ff9800;
-    }
-    
-    .buy-btn {
-      padding: 10px 22px;
-      border: none;
-      border-radius: 30px;
-      background: linear-gradient(45deg,#ff9800,#ff5722);
-      color: white;
-      cursor: pointer;
-      font-weight: 600;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    
-    .buy-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px orange;
-    }
-
-    .buy-btn:active {
-      transform: scale(0.95);
-      box-shadow: 0 0 5px orange;
-    }
-    
-    .star {
-      color: #FFD700;
-      font-size: 18px;
-      margin-bottom: 15px;
-    }
-    
-    /* FILTER & SEARCH */
-    .filter-buttons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-bottom: 30px;
-    }
-    
-    .filter-buttons button {
-      padding: 12px 25px;
-      border: none;
-      border-radius: 30px;
-      background: #222;
-      color: #fff;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    }
-    
-    .filter-buttons button:hover,
-    .filter-buttons .active {
-      background: linear-gradient(45deg,#ff9800,#ff5722);
-      box-shadow: 0 0 20px orange;
-    }
-
-    .filter-buttons button:active {
-      transform: scale(0.95);
-    }
-    
-    .search-box {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 40px;
-    }
-    
-    .search-box input {
-      width: 420px;
-      max-width: 90%;
-      padding: 15px 25px;
-      border: none;
-      border-radius: 40px;
-      font-size: 16px;
-      outline: none;
-      background: #1b1b1b;
-      color: #fff;
-      box-shadow: 0 0 15px rgba(255,152,0,.25);
-      transition: box-shadow 0.3s ease, background 0.3s ease;
-    }
-
-    .search-box input:focus {
-      background: #252525;
-      box-shadow: 0 0 25px rgba(255,152,0,.5);
-    }
-    
-    .search-box input::placeholder {
-      color: #bbb;
-    }
-
-    /* SIDEBAR SHOPPING CART */
-    .cart-sidebar {
-      position: fixed;
-      top: 0;
-      right: -400px;
-      width: 380px;
-      max-width: 100%;
-      height: 100vh;
-      background: #151515;
-      box-shadow: -5px 0 25px rgba(0,0,0,0.8);
-      z-index: 1005;
-      transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-      display: flex;
-      flex-direction: column;
-      padding: 25px;
-    }
-
-    .cart-sidebar.active {
-      right: 0;
-    }
-
-    .cart-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #333;
-      padding-bottom: 15px;
-      margin-bottom: 15px;
-    }
-
-    .cart-header h2 {
-      font-family: 'Playfair Display', serif;
-      color: #FFD700;
-    }
-
-    .close-cart {
-      background: none;
-      border: none;
-      color: white;
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-    .cart-items-container {
-      flex: 1;
-      overflow-y: auto;
-      margin-bottom: 15px;
-    }
-
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(255,255,255,0.03);
-      padding: 12px;
-      border-radius: 12px;
-      margin-bottom: 10px;
-    }
-
-    .cart-item-details h4 {
-      color: #FFD700;
-      font-size: 16px;
-    }
-
-    .cart-item-details p {
-      font-size: 14px;
-      color: #ff9800;
-      font-weight: 600;
-    }
-
-    .cart-item-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .cart-item-actions button {
-      background: #333;
-      border: none;
-      color: white;
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .cart-item-actions button:hover {
-      background: #ff9800;
-    }
-
-    .cart-total-section {
-      border-top: 1px solid #333;
-      padding-top: 15px;
-    }
-
-    .cart-total-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-
-    .checkout-form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .checkout-form input, .checkout-form select {
-      padding: 10px;
-      background: #222;
-      border: 1px solid #444;
-      border-radius: 8px;
-      color: white;
-      outline: none;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    .checkout-form input:focus, .checkout-form select:focus {
-      border-color: #ff9800;
-    }
-
-    .checkout-btn {
-      width: 100%;
-      padding: 14px;
-      background: linear-gradient(45deg, #4caf50, #2e7d32);
-      border: none;
-      border-radius: 30px;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 5px;
-      transition: background 0.3s;
-    }
-    
-    .checkout-btn:hover {
-      background: linear-gradient(45deg, #66bb6a, #388e3c);
-    }
-    
-    /* RECEIPT MODAL */
-    .receipt-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      backdrop-filter: blur(10px);
-      z-index: 3000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
-    }
-
-    .receipt-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .receipt-container {
-      background: #fff;
-      color: #333;
-      border-radius: 20px;
-      width: 450px;
-      max-width: 90%;
-      padding: 30px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-      text-align: center;
-      position: relative;
-    }
-
-    .receipt-header h3 {
-      color: #2e7d32;
-      font-size: 24px;
-      margin-bottom: 5px;
-    }
-    
-    .receipt-success-icon {
-      font-size: 50px;
-      color: #4caf50;
-      margin: 15px 0;
-    }
-
-    .receipt-details {
-      text-align: left;
-      background: #f9f9f9;
-      padding: 15px;
-      border-radius: 10px;
-      margin: 20px 0;
-      font-size: 14px;
-      border: 1px dashed #ccc;
-    }
-    
-    .receipt-details p {
-      margin-bottom: 8px;
-    }
-
-    .receipt-actions-btns {
-      display: flex;
-      gap: 15px;
-      justify-content: center;
-      margin-top: 15px;
-    }
-
-    .close-receipt-btn, .print-receipt-btn {
-      padding: 12px 25px;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 14px;
-      transition: 0.2s;
-    }
-
-    .close-receipt-btn {
-      background: #333;
-      color: white;
-    }
-
-    .close-receipt-btn:hover {
-      background: #000;
-    }
-
-    .print-receipt-btn {
-      background: #ff9800;
-      color: white;
-    }
-
-    .print-receipt-btn:hover {
-      background: #e65100;
-    }
-    
-    /* CHEF SECTION */
-    .chef-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 50px;
-    }
-    
-    .chef-image img {
-      width: 340px;
-      border-radius: 25px;
-      box-shadow: 0 10px 35px rgba(255,165,0,.4);
-      transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.5s ease;
-    }
-    
-    .chef-image img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 15px 45px rgba(255,165,0,.5);
-    }
-    
-    .chef-text {
-      max-width: 520px;
-    }
-    
-    .chef-text h3 {
-      font-size: 40px;
-      color: #FFD700;
-      margin-bottom: 15px;
-    }
-    
-    .chef-text p {
-      color: #ddd;
-      line-height: 1.8;
-      margin-bottom: 25px;
-    }
-    
-    .chef-stats {
-      display: flex;
-      gap: 40px;
-      margin-bottom: 30px;
-    }
-    
-    .chef-stats h2 {
-      color: #ff9800;
-    }
-    
-    /* REVIEWS & GALLERY */
-    .review-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-    
-    .review-card {
-      background: rgba(255, 255, 255, .05);
-      padding: 30px;
-      border-radius: 20px;
-      text-align: center;
-      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
-      backdrop-filter: blur(12px);
-    }
-    
-    .review-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 35px rgba(255,165,0,.3);
-    }
-    
-    .review-card h3 {
-      color: #FFD700;
-      margin-bottom: 10px;
-    }
-    
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    
-    .gallery img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 20px;
-      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
-      cursor: pointer;
-    }
-    
-    .gallery img:hover {
-      transform: scale(1.04);
-      box-shadow: 0 10px 30px rgba(255,165,0,.5);
-    }
-    
-    /* CONTACT & FOOTER */
-    .contact-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      margin-top: 50px;
-    }
-    
-    .contact-info {
-      font-size: 18px;
-      line-height: 2;
-    }
-    
-    .contact-info h3 {
-      font-size: 35px;
-      color: #FFD700;
-      margin-bottom: 20px;
-    }
-    
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    
-    .contact-form input,
-    .contact-form textarea {
-      padding: 16px;
-      border: 2px solid transparent;
-      border-radius: 12px;
-      background: #1f1f1f;
-      color: white;
-      font-size: 16px;
-      outline: none;
-      transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      background: #252525;
-      border-color: #ff9800;
-      box-shadow: 0 0 15px rgba(255, 152, 0, 0.3);
-    }
-    
-    .contact-form button {
-      padding: 16px;
-      border: none;
-      border-radius: 30px;
-      background: linear-gradient(45deg,#ff9800,#ff5722);
-      color: white;
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
-    }
-    
-    .contact-form button:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 25px orange;
-    }
-
-    .contact-form button:active {
-      transform: scale(0.97);
-    }
-    
-    footer {
-      margin-top: 80px;
-      padding: 50px 20px;
-      text-align: center;
-      background: #111;
-    }
-    
-    footer h2 {
-      font-family: 'Playfair Display', serif;
-      color: #FFD700;
-      font-size: 40px;
-      margin-bottom: 15px;
-    }
-    
-    footer p {
-      color: #ccc;
-      margin: 10px 0;
-    }
-    
-    .social {
-      margin: 25px 0;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-    
-    .social a {
-      text-decoration: none;
-      color: white;
-      font-size: 16px;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      transition: color 0.3s ease, transform 0.3s ease;
-    }
-    
-    .social a i {
-      font-size: 20px;
-    }
-    
-    .social a:hover {
-      color: #FFD700;
-      transform: translateY(-3px);
-    }
-
-    .social a:active {
-      transform: translateY(-1px) scale(0.95);
-    }
-    
-    #topBtn {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      width: 55px;
-      height: 55px;
-      border: none;
-      border-radius: 50%;
-      font-size: 22px;
-      background: #ff9800;
-      color: white;
-      cursor: pointer;
-      display: none;
-      box-shadow: 0 0 20px orange;
-      z-index: 1001;
-      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.2s ease;
-    }
-
-    #topBtn:hover {
-      transform: scale(1.1);
-      background: #ff5722;
-    }
-
-    #topBtn:active {
-      transform: scale(0.9);
-    }
-    
-    /* RESPONSIVE MEDIA QUERIES */
-    @media(max-width: 800px) {
-      .contact-container {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-    @media(max-width: 768px) {
-      nav ul {
-        display: none;
-      }
-      .chef-container {
-        flex-direction: column;
-        text-align: center;
-      }
-      .chef-stats {
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-    }
-
-    /* CSS PRINT INVOICE SLIP MEDIA STYLING */
-    @media print {
-      body * {
-        visibility: hidden;
-      }
-      #receiptOverlay, #receiptOverlay *, #receiptDetailsContainer, #receiptDetailsContainer * {
-        visibility: visible;
-      }
-      #receiptOverlay {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        background: #fff !important;
-        backdrop-filter: none !important;
-      }
-      .receipt-container {
-        box-shadow: none !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        color: #000 !important;
-      }
-      .receipt-actions-btns, .receipt-success-icon {
-        display: none !important;
-      }
-      .receipt-details {
-        border: 1px solid #000 !important;
-        background: #fff !important;
-      }
-    }
-  </style>
+.info{
+margin-top:15px;
+font-size:14px;
+line-height:1.8;
+}
+</style>
 </head>
 
 <body>
-  
-  <!-- NAVBAR -->
-  <nav>
-    <div class="logo">Pandey Restaurant</div>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#menu">Menu</a></li>
-      <li><a href="#special">Special</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#reviews">Reviews</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="nav-buttons">
-      <button class="cart-nav-btn" onclick="toggleCart()">
-        <i class="fas fa-shopping-cart"></i> Cart (<span id="cart-count">0</span>)
-      </button>
-      <button class="order-btn" onclick="location.href='#contact'">Book Table</button>
-      <button class="order-btn" id="navAuthBtn" onclick="openAuthModal('login')" style="background: transparent; border: 1px solid #FFD700;">Login</button>
-    </div>
-  </nav>
 
-  <!-- HIDDEN INTEGRATION FORM FOR STRIPPED ESEWA FORM REDIRECT SYSTEM -->
-  <form id="esewaHiddenForm" action="https://uat.esewa.com.np/epay/main" method="POST" style="display:none;">
-    <input value="0" name="tAmt" id="esewa_tAmt" type="hidden">
-    <input value="0" name="amt" id="esewa_amt" type="hidden">
-    <input value="0" name="txAmt" type="hidden">
-    <input value="0" name="psc" type="hidden">
-    <input value="0" name="pdc" type="hidden">
-    <input value="EPAYTEST" name="scd" type="hidden"> <!-- 👉 REPLACE WITH YOUR PRODUCTION MERCHANT CODE -->
-    <input value="" name="pid" id="esewa_pid" type="hidden">
-    <input value="https://google.com" name="su" type="hidden"> <!-- Update with your success URL -->
-    <input value="https://google.com" name="fu" type="hidden"> <!-- Update with your failure URL -->
-  </form>
+<div class="card" id="login">
 
-  <!-- AUTHENTICATION REGISTRATION AND LOGIN MODAL -->
-  <div class="auth-overlay" id="authOverlay">
-    <div class="auth-container">
-      <button class="close-auth" onclick="closeAuthModal()">×</button>
-      <div class="auth-logo">Pandey Restaurant</div>
-      
-      <!-- LOGIN BOX -->
-      <div class="auth-box active" id="loginBox">
-        <h3>Welcome Back</h3>
-        <div id="loginMessage" style="text-align: center; margin-bottom: 15px; font-size: 14px; display: none; font-weight: 500;"></div>
-        <form class="auth-form" onsubmit="handleAuthSubmit(event, 'login')">
-          <div class="auth-input-group">
-            <i class="fas fa-envelope"></i>
-            <input type="email" id="loginEmail" placeholder="Email Address" required>
-          </div>
-          <div class="auth-input-group">
-            <i class="fas fa-lock"></i>
-            <input type="password" id="loginPassword" placeholder="Password" required>
-          </div>
-          <button type="submit" class="auth-submit-btn">Login to Account</button>
-        </form>
-        <div class="auth-switch-text">
-          Don't have an account? <span onclick="switchAuth('register')">Register Here</span>
-        </div>
-      </div>
+<h2>🔐 Secure Login</h2>
 
-      <!-- REGISTRATION BOX -->
-      <div class="auth-box" id="registerBox">
-        <h3>Create Premium Account</h3>
-        <div id="registerMessage" style="text-align: center; margin-bottom: 15px; font-size: 14px; display: none; font-weight: 500;"></div>
-        <form class="auth-form" onsubmit="handleAuthSubmit(event, 'register')">
-          <div class="auth-input-group">
-            <i class="fas fa-user"></i>
-            <input type="text" id="regName" placeholder="Full Name" required>
-          </div>
-          <div class="auth-input-group">
-            <i class="fas fa-envelope"></i>
-            <input type="email" id="regEmail" placeholder="Email Address" required>
-          </div>
-          <div class="auth-input-group">
-            <i class="fas fa-lock"></i>
-            <input type="password" id="regPassword" minlength="6" placeholder="Password" required>
-          </div>
-          <button type="submit" class="auth-submit-btn">Register Now</button>
-        </form>
-        <div class="auth-switch-text">
-          Already have an account? <span onclick="switchAuth('login')">Login Here</span>
-        </div>
-      </div>
+<input type="password" id="loginPass" placeholder="Enter Security Password">
 
-    </div>
-  </div>
+<button onclick="login()">Unlock</button>
 
-  <!-- SIDEBAR SHOPPING CART -->
-  <div class="cart-sidebar" id="cartSidebar">
-    <div class="cart-header">
-      <h2>Your Order</h2>
-      <button class="close-cart" onclick="toggleCart()">×</button>
-    </div>
-    
-    <div class="cart-items-container" id="cartItems">
-      <p style="text-align:center; color:#888; margin-top:30px;">Your cart is empty.</p>
-    </div>
+<div id="error"></div>
 
-    <div class="cart-total-section">
-      <div class="cart-total-row">
-        <span>Total:</span>
-        <span id="cart-total-price">Rs. 0</span>
-      </div>
-      
-      <div class="checkout-form">
-        <input type="text" id="cartName" placeholder="Your Name" required>
-        <input type="text" id="cartAddress" placeholder="Delivery Address / Table Number" required>
-        
-        <!-- AUTOMATED GATEWAY SELECTION -->
-        <select id="paymentMethod" required>
-          <option value="" disabled selected>Select Payment Method</option>
-          <option value="eSewa">eSewa Portal Checkout</option>
-          <option value="Khalti">Khalti Live Wallet</option>
-        </select>
-        
-        <button class="checkout-btn" onclick="checkoutCart()">Proceed to Secure Payment</button>
-      </div>
-    </div>
-  </div>
+</div>
 
-  <!-- AUTOMATED TRANSACTION SUCCESS RECEIPT MODAL -->
-  <div class="receipt-overlay" id="receiptOverlay">
-    <div class="receipt-container">
-      <div class="receipt-header">
-        <i class="fas fa-check-circle receipt-success-icon"></i>
-        <h3>Payment Successful!</h3>
-        <p style="color: #666; font-size:14px;">Thank you for your order at Pandey Restaurant.</p>
-      </div>
-      
-      <div class="receipt-details" id="receiptDetailsContainer">
-        <!-- Injected via JavaScript -->
-      </div>
-      
-      <div class="receipt-actions-btns">
-        <button class="print-receipt-btn" onclick="printReceiptSlip()"><i class="fas fa-print"></i> Print Receipt Slip</button>
-        <button class="close-receipt-btn" onclick="closeReceiptModal()">Done</button>
-      </div>
-    </div>
-  </div>
-  
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Experience Luxury Dining</h1>
-      <p>Fresh Ingredients • Delicious Meals • Premium Experience</p>
-      <button onclick="location.href='#menu'">Explore Menu</button>
-    </div>
-  </section>
-  
-  <!-- TODAY'S SPECIALS -->
-  <section id="special">
-    <h2 class="title">Today's Special</h2>
-    <div class="menu-grid">
-      <div class="food-card">
-        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=900" alt="Italian Pizza">
-        <div class="food-info">
-          <h3>Italian Pizza</h3>
-          <div class="star">★★★★★</div>
-          <p>Cheesy handmade pizza with fresh vegetables and herbs.</p>
-          <div class="bottom">
-            <div class="price">Rs. 850</div>
-            <button class="buy-btn" onclick="addToCart('Italian Pizza', 850)">Order</button>
-          </div>
-        </div>
-      </div>
-      <div class="food-card">
-        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=900" alt="Classic Burger">
-        <div class="food-info">
-          <h3>Classic Burger</h3>
-          <div class="star">★★★★★</div>
-          <p>Juicy beef burger with cheese, lettuce and crispy fries.</p>
-          <div class="bottom">
-            <div class="price">Rs. 650</div>
-            <button class="buy-btn" onclick="addToCart('Classic Burger', 650)">Order</button>
-          </div>
-        </div>
-      </div>
-      <div class="food-card">
-        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=900" alt="Healthy Salad">
-        <div class="food-info">
-          <h3>Healthy Salad</h3>
-          <div class="star">★★★★☆</div>
-          <p>Fresh vegetables with premium olive oil dressing.</p>
-          <div class="bottom">
-            <div class="price">Rs. 450</div>
-            <button class="buy-btn" onclick="addToCart('Healthy Salad', 450)">Order</button>
-          </div>
-        </div>
-      </div>
-      <div class="food-card">
-        <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=900" alt="Grilled Steak">
-        <div class="food-info">
-          <h3>Grilled Steak</h3>
-          <div class="star">★★★★★</div>
-          <p>Perfectly grilled steak served with vegetables.</p>
-          <div class="bottom">
-            <div class="price">Rs. 1850</div>
-            <button class="buy-btn" onclick="addToCart('Grilled Steak', 1850)">Order</button>
-          </div>
-        </div>
-      </div>
-      <div class="food-card">
-        <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=900" alt="Chicken Biryani">
-        <div class="food-info">
-          <h3>Chicken Biryani</h3>
-          <div class="star">★★★★★</div>
-          <p>Traditional biryani with aromatic rice and spices.</p>
-          <div class="bottom">
-            <div class="price">Rs. 750</div>
-            <button class="buy-btn" onclick="addToCart('Chicken Biryani', 750)">Order</button>
-          </div>
-        </div>
-      </div>
-      <div class="food-card">
-        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=900" alt="French Fries">
-        <div class="food-info">
-          <h3>French Fries</h3>
-          <div class="star">★★★★☆</div>
-          <p>Golden crispy fries served with tomato sauce.</p>
-          <div class="bottom">
-            <div class="price">Rs. 350</div>
-            <button class="buy-btn" onclick="addToCart('French Fries', 350)">Order</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="card" id="viewer">
 
-  <!-- DELICIOUS MENU SECTION -->
-  <section id="menu">
-    <h2 class="title">Our Delicious Menu</h2>
-    <div class="filter-buttons">
-      <button class="active">All</button>
-      <button>Pizza</button>
-      <button>Burger</button>
-      <button>Chicken</button>
-      <button>Dessert</button>
-      <button>Drinks</button>
-    </div>
-    <div class="search-box">
-      <input type="text" placeholder="🔍 Search your favorite food...">
-    </div>
-    <div class="menu-grid">
-      <div class="food-card">
-        <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=900" alt="Chocolate Cake">
-        <div class="food-info">
-          <h3>Chocolate Cake</h3>
-          <div class="star">★★★★★</div>
-          <p>Soft chocolate cake with creamy frosting.</p>
-          <div class="bottom">
-            <div class="price">Rs. 450</div>
-            <button class="buy-btn" onclick="addToCart('Chocolate Cake', 450)">Order</button>
-          </div>
-        </div>
-      </div>
-      <div class="food-card">
-        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=900" alt="Fresh Juice">
-        <div class="food-info">
-          <h3>Fresh Juice</h3>
-          <div class="star">★★★★☆</div>
-          <p>Healthy mixed fruit juice served chilled.</p>
-          <div class="bottom">
-            <div class="price">Rs. 250</div>
-            <button class="buy-btn" onclick="addToCart('Fresh Juice', 250)">Order</button>
-          </div>
-        </div>
-      </div>
-      <div class="food-card">
-        <img src="https://images.unsplash.com/photo-1525755662778-989d0524087e?w=900" alt="Ice Cream">
-        <div class="food-info">
-          <h3>Ice Cream</h3>
-          <div class="star">★★★★★</div>
-          <p>Vanilla ice cream topped with chocolate syrup.</p>
-          <div class="bottom">
-            <div class="price">Rs. 300</div>
-            <button class="buy-btn" onclick="addToCart('Ice Cream', 300)">Order</button>
-          </div>
-        </div>
-      </div>
-      <div class="food-card">
-        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900" alt="Chicken Pasta">
-        <div class="food-info">
-          <h3>Chicken Pasta</h3>
-          <div class="star">★★★★★</div>
-          <p>Creamy pasta with grilled chicken and cheese.</p>
-          <div class="bottom">
-            <div class="price">Rs. 690</div>
-            <button class="buy-btn" onclick="addToCart('Chicken Pasta', 690)">Order</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<h2>📶 WiFi Details</h2>
 
-  <!-- CHEF SECTION -->
-  <section id="chef">
-    <h2 class="title">👨‍🍳 Meet Our Master Chef</h2>
-    <div class="chef-container">
-      <div class="chef-image">
-        <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?w=800" alt="Chef Alexander">
-      </div>
-      <div class="chef-text">
-        <h3>Manish Pandey</h3>
-        <p>With over 10 years of experience, Manish Pandey creates delicious dishes using the freshest ingredients. Every meal is prepared with passion, creativity, and love.</p>
-        <div class="chef-stats">
-          <div>
-            <h2>10+</h2>
-            <p>Years Experience</p>
-          </div>
-          <div>
-            <h2>250+</h2>
-            <p>Recipes</p>
-          </div>
-          <div>
-            <h2>4.9★</h2>
-            <p>Customer Rating</p>
-          </div>
-        </div>
-        <button class="order-btn" onclick="location.href='#contact'">Book a Table</button>
-      </div>
-    </div>
-  </section>
+<div class="info">
+<b>WiFi Name</b><br>
+nawnit_5
+</div>
 
-  <!-- REVIEWS -->
-  <section id="reviews">
-    <h2 class="title">⭐ Customer Reviews</h2>
-    <div class="review-grid">
-      <div class="review-card">
-        <h3>Deepak Yadav</h3>
-        <p>★★★★★</p>
-        <p>"Absolutely delicious food and excellent service. I will definitely visit again!"</p>
-      </div>
-      <div class="review-card">
-        <h3>Barun Kurmi</h3>
-        <p>★★★★★</p>
-        <p>"Beautiful restaurant with premium quality food. Highly recommended."</p>
-      </div>
-      <div class="review-card">
-        <h3>Rabi Dhawal</h3>
-        <p>★★★★★</p>
-        <p>"The desserts were amazing and the staff were very friendly."</p>
-      </div>
-    </div>
-  </section>
+<div class="info">
+<b>WiFi Password</b>
+</div>
 
-  <!-- GALLERY -->
-  <section id="gallery">
-    <h2 class="title">📸 Food Gallery</h2>
-    <div class="gallery">
-      <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=900" alt="Gallery Pizza">
-      <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=900" alt="Gallery Italian Pizza">
-      <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=900" alt="Gallery Burger">
-      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900" alt="Gallery Table Setting">
-      <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=900" alt="Gallery Salad">
-      <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=900" alt="Gallery Steak">
-    </div>
-  </section>
+<div class="passwordBox">
 
-  <!-- CONTACT SECTION -->
-  <section id="contact">
-    <h2 class="title">Contact Us & General Inquiries</h2>
-    <div class="contact-container">
-      <div class="contact-info">
-        <h3>Pandey Restaurant</h3>
-        <p>📍 Hati Bangai, Mayadevi Rural Municipality - 07, Rupandehi, Nepal</p>
-        <p>📞 +977 9816414020</p>
-        <p>📧 pandeynawnit61@gmail.com</p>
-        <p>🕒 Open Daily: 9:00 AM - 10:00 PM</p>
-      </div>
-      <form class="contact-form" id="orderForm">
-        <input type="text" id="userName" placeholder="Your Name" required>
-        <input type="email" id="userEmail" placeholder="Your Email">
-        <textarea id="orderMessage" rows="6" placeholder="General message or table booking details..." required></textarea>
-        <button type="button" onclick="sendGeneralInquiry()">Send General Message</button>
-      </form>
-    </div>
-  </section>
+<input type="password" id="wifiPass" value="@Pandey_0011" readonly>
 
-  <!-- FOOTER -->
-  <footer>
-    <h2>Pandey Restaurant</h2>
-    <p>Serving happiness with every meal.</p>
-    <div class="social">
-      <a href="https://www.facebook.com/nawnitkp1" target="_blank">
-        <i class="fab fa-facebook-f"></i> Facebook
-      </a>
-      <a href="https://www.instagram.com/nawnitkp1" target="_blank">
-        <i class="fab fa-instagram"></i> Instagram
-      </a>
-      <a href="https://www.youtube.com/@NawnitPandey-np" target="_blank">
-        <i class="fab fa-youtube"></i> YouTube
-      </a>
-      <a href="https://wa.me/9779816414020" target="_blank">
-        <i class="fab fa-whatsapp"></i> WhatsApp
-      </a>
-    </div>
-    <p class="copyright">© 2026 Pandey Restaurant. All Rights Reserved.</p>
-  </footer>
+<span class="toggle" onclick="togglePass()">Show</span>
 
-  <!-- SCROLL TO TOP -->
-  <button id="topBtn" title="Go to top">↑</button>
+</div>
 
-  <!-- JAVASCRIPT SYSTEM ENGINE -->
-  <script>
-    const topBtn = document.getElementById("topBtn");
-    const cartSidebar = document.getElementById("cartSidebar");
-    const authOverlay = document.getElementById("authOverlay");
-    const loginBox = document.getElementById("loginBox");
-    const registerBox = document.getElementById("registerBox");
-    const navAuthBtn = document.getElementById("navAuthBtn");
-    const receiptOverlay = document.getElementById("receiptOverlay");
-    const receiptDetailsContainer = document.getElementById("receiptDetailsContainer");
-    
-    let cart = [];
-    let isLoggedIn = false;
-    let currentPayload = null;
+<button onclick="copyPass()">📋 Copy Password</button>
 
-    // KHALTI DIGITAL SDK INSTANTIATION ROUTINES
-    // 👉 REPLACE PUBLIC KEY WITH YOUR PRODUCTION KEY WHEN GOING LIVE
-    const khaltiConfig = {
-      "publicKey": "test_public_key_a8d7a12b9dcd44eb887bdcd78b4d83f1", 
-      "productIdentity": "PandeyRestroOrder",
-      "productName": "Pandey Restaurant Food Order",
-      "productUrl": window.location.href,
-      "paymentPreference": ["KHALTI", "EBANKING", "MOBILE_BANKING", "CONNECT_IPS"],
-      "eventHandler": {
-        onSuccess(payload) {
-          // Captures successful payment directly from Khalti's servers
-          executeSuccessfulOrderHandshake("Khalti Wallet", payload.idx);
-        },
-        onError(error) {
-          alert("Khalti Secure Gateway Exception: " + error.message);
-        },
-        onClose() {
-          console.log("Khalti secure routing window closed by customer.");
-        }
-      }
-    };
-    const khaltiCheckoutInstance = new KhaltiCheckout(khaltiConfig);
+</div>
 
-    // Authentication Overlay Handlers
-    function openAuthModal(view = 'login') {
-      authOverlay.classList.add("active");
-      switchAuth(view);
-    }
+<script>
 
-    function closeAuthModal() {
-      authOverlay.classList.remove("active");
-      // Reset inline messages when modal hides
-      document.getElementById("loginMessage").style.display = "none";
-      document.getElementById("registerMessage").style.display = "none";
-    }
+const SECURITY_PASSWORD="Admin@123";
 
-    function switchAuth(view) {
-      document.getElementById("loginMessage").style.display = "none";
-      document.getElementById("registerMessage").style.display = "none";
-      if (view === 'login') {
-        registerBox.classList.remove("active");
-        loginBox.classList.add("active");
-      } else {
-        loginBox.classList.remove("active");
-        registerBox.classList.add("active");
-      }
-    }
+function login(){
 
-    function handleAuthSubmit(event, type) {
-      event.preventDefault();
-      
-      const loginMessage = document.getElementById("loginMessage");
-      const registerMessage = document.getElementById("registerMessage");
-      
-      if (type === 'register') {
-        const name = document.getElementById("regName").value.trim();
-        const email = document.getElementById("regEmail").value.trim();
-        const password = document.getElementById("regPassword").value;
-        
-        localStorage.setItem("user_" + email, JSON.stringify({ name, email, password }));
-        
-        registerMessage.style.color = "#4caf50";
-        registerMessage.innerText = "Account created successfully! Switching to login view...";
-        registerMessage.style.display = "block";
-        
-        setTimeout(() => {
-          registerMessage.style.display = "none";
-          document.getElementById("regName").value = "";
-          document.getElementById("regEmail").value = "";
-          document.getElementById("regPassword").value = "";
-          switchAuth('login');
-        }, 2200);
-      } 
-      else if (type === 'login') {
-        const email = document.getElementById("loginEmail").value.trim();
-        const password = document.getElementById("loginPassword").value;
-        const storedUserData = localStorage.getItem("user_" + email);
-        
-        if (storedUserData) {
-          const user = JSON.parse(storedUserData);
-          if (user.password === password) {
-            isLoggedIn = true;
-            
-            loginMessage.style.color = "#4caf50";
-            loginMessage.innerText = "Welcome back, " + user.name + "! Login successful.";
-            loginMessage.style.display = "block";
-            
-            navAuthBtn.innerText = "Logged In (" + user.name.split(" ")[0] + ")";
-            navAuthBtn.style.borderColor = "#ff9800";
-            document.getElementById("cartName").value = user.name;
-            
-            setTimeout(() => {
-              loginMessage.style.display = "none";
-              document.getElementById("loginEmail").value = "";
-              document.getElementById("loginPassword").value = "";
-              closeAuthModal();
-            }, 2000);
-          } else {
-            loginMessage.style.color = "#ff3d00";
-            loginMessage.innerText = "Incorrect details! The password you entered is invalid.";
-            loginMessage.style.display = "block";
-          }
-        } else {
-          loginMessage.style.color = "#ff3d00";
-          loginMessage.innerText = "Incorrect details! No account found matching this email.";
-          loginMessage.style.display = "block";
-        }
-      }
-    }
+let pass=document.getElementById("loginPass").value;
 
-    window.onscroll = function() {
-      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        topBtn.style.display = "block";
-      } else {
-        topBtn.style.display = "none";
-      }
-    };
+if(pass===SECURITY_PASSWORD){
 
-    topBtn.onclick = function() {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    };
+document.getElementById("login").style.display="none";
+document.getElementById("viewer").style.display="block";
 
-    function toggleCart() {
-      cartSidebar.classList.toggle("active");
-    }
+}else{
 
-    function addToCart(name, price) {
-      if (!isLoggedIn) {
-        openAuthModal('login');
-        // Let user know right on the login prompt panel why they are seeing it
-        const loginMessage = document.getElementById("loginMessage");
-        loginMessage.style.color = "#ff9800";
-        loginMessage.innerText = "Authentication Required: Please login to order items.";
-        loginMessage.style.display = "block";
-        return;
-      }
+document.getElementById("error").innerHTML="❌ Incorrect security password.";
 
-      const existingItem = cart.find(item => item.name === name);
-      if (existingItem) {
-        existingItem.quantity += 1;
-      } else {
-        cart.push({ name, price, quantity: 1 });
-      }
-      
-      updateCartUI();
-      if(!cartSidebar.classList.contains("active")) {
-        cartSidebar.classList.add("active");
-      }
-    }
+}
 
-    function changeQuantity(name, amount) {
-      const item = cart.find(item => item.name === name);
-      if (item) {
-        item.quantity += amount;
-        if (item.quantity <= 0) {
-          cart = cart.filter(i => i.name !== name);
-        }
-        updateCartUI();
-      }
-    }
+}
 
-    function updateCartUI() {
-      const cartItemsContainer = document.getElementById("cartItems");
-      const cartCount = document.getElementById("cart-count");
-      const cartTotalPrice = document.getElementById("cart-total-price");
-      
-      if (cart.length === 0) {
-        cartItemsContainer.innerHTML = `<p style="text-align:center; color:#888; margin-top:30px;">Your cart is empty.</p>`;
-        cartCount.innerText = "0";
-        cartTotalPrice.innerText = "Rs. 0";
-        return;
-      }
+function togglePass(){
 
-      let totalItems = 0;
-      let grandTotal = 0;
-      cartItemsContainer.innerHTML = "";
+let p=document.getElementById("wifiPass");
+let t=document.querySelector(".toggle");
 
-      cart.forEach(item => {
-        totalItems += item.quantity;
-        grandTotal += (item.price * item.quantity);
+if(p.type==="password"){
+p.type="text";
+t.innerHTML="Hide";
+}else{
+p.type="password";
+t.innerHTML="Show";
+}
 
-        cartItemsContainer.innerHTML += `
-          <div class="cart-item">
-            <div class="cart-item-details">
-              <h4>${item.name}</h4>
-              <p>Rs. ${item.price} x ${item.quantity}</p>
-            </div>
-            <div class="cart-item-actions">
-              <button onclick="changeQuantity('${item.name}', -1)">-</button>
-              <span>${item.quantity}</span>
-              <button onclick="changeQuantity('${item.name}', 1)">+</button>
-            </div>
-          </div>
-        `;
-      });
+}
 
-      cartCount.innerText = totalItems;
-      cartTotalPrice.innerText = `Rs. ${grandTotal.toLocaleString()}`;
-    }
+function copyPass(){
 
-    // RUN TIME CHECKOUT STRATEGY FOR API INITIALIZATION
-    function checkoutCart() {
-      if (!isLoggedIn) {
-        toggleCart();
-        openAuthModal('login');
-        const loginMessage = document.getElementById("loginMessage");
-        loginMessage.style.color = "#ff9800";
-        loginMessage.innerText = "Authentication Required: Please log in to check out.";
-        loginMessage.style.display = "block";
-        return;
-      }
+navigator.clipboard.writeText(document.getElementById("wifiPass").value);
 
-      const customerName = document.getElementById("cartName").value.trim();
-      const customerLocation = document.getElementById("cartAddress").value.trim();
-      const chosenGateway = document.getElementById("paymentMethod").value;
+alert("WiFi password copied!");
 
-      if (cart.length === 0) {
-        alert("Your cart is empty. Please add items before checking out.");
-        return;
-      }
-      if (customerName === "" || customerLocation === "") {
-        alert("Please fill out your Name and Delivery/Table information.");
-        return;
-      }
-      if (!chosenGateway) {
-        alert("Please choose a payment method to complete the transaction.");
-        return;
-      }
+}
 
-      let totalAmount = 0;
-      let itemsSummaryHtml = "";
-      cart.forEach((item) => {
-        const itemTotal = item.price * item.quantity;
-        totalAmount += itemTotal;
-        itemsSummaryHtml += `<li>${item.name} (x${item.quantity}) - Rs. ${itemTotal.toLocaleString()}</li>`;
-      });
+</script>
 
-      const trackingTransactionId = "RESTRO-" + Math.floor(100000 + Math.random() * 900000);
-
-      currentPayload = {
-        name: customerName,
-        loc: customerLocation,
-        gateway: chosenGateway,
-        total: totalAmount,
-        summary: itemsSummaryHtml,
-        txnId: trackingTransactionId
-      };
-
-      toggleCart();
-
-      // INITIALIZE SECURE HANDSHAKE BASED ON USER GATEWAY SELECTION
-      if (chosenGateway === "Khalti") {
-        // Khalti takes amounts in Paisa (1 Rupee = 100 Paisa)
-        khaltiCheckoutInstance.show({ amount: totalAmount * 100 });
-      } 
-      else if (chosenGateway === "eSewa") {
-        // Inject dynamic values directly into eSewa hidden processing architecture
-        document.getElementById("esewa_tAmt").value = totalAmount;
-        document.getElementById("esewa_amt").value = totalAmount;
-        document.getElementById("esewa_pid").value = trackingTransactionId;
-        
-        alert("Redirecting to eSewa's Secure Payment Terminal. Please confirm your transaction inside their overlay window.");
-        
-        // Simulating the automatic post return locally since UAT environment operates on absolute form post triggers
-        setTimeout(() => {
-          executeSuccessfulOrderHandshake("eSewa Digital Portal", "ESEWA-REF-" + Math.floor(10000000 + Math.random() * 90000000));
-        }, 1500);
-      }
-    }
-
-    // POST-GATEWAY VALIDATION ENGINE AND INVOICING SLIP CREATOR
-    function executeSuccessfulOrderHandshake(confirmedGateway, secureRefId) {
-      const orderDate = new Date().toLocaleString();
-
-      receiptDetailsContainer.innerHTML = `
-        <div style="text-align: center; border-bottom: 2px dashed #333; padding-bottom: 10px; margin-bottom: 10px;">
-           <h2 style="font-family: 'Playfair Display', serif; margin: 0; color:#000;">PANDEY RESTAURANT</h2>
-           <p style="font-size: 11px; margin: 2px 0;">Hati Bangai, Rupandehi, Nepal | Phone: +977 9816414020</p>
-        </div>
-        <p><strong>Order Tracking ID:</strong> ${currentPayload.txnId}</p>
-        <p><strong>Gateway Receipt Reference:</strong> ${secureRefId}</p>
-        <p><strong>Date/Time:</strong> ${orderDate}</p>
-        <p><strong>Customer:</strong> ${currentPayload.name}</p>
-        <p><strong>Table / Address:</strong> ${currentPayload.loc}</p>
-        <p><strong>Payment Status:</strong> Verified Secure via ${confirmedGateway}</p>
-        <hr style="margin: 10px 0; border: none; border-top: 1px solid #ddd;">
-        <p><strong>Items Ordered:</strong></p>
-        <ul style="padding-left: 20px; margin-bottom: 10px;">${currentPayload.summary}</ul>
-        <p style="font-size: 16px; color: #2e7d32; text-align: right; border-top: 1px double #333; padding-top: 5px;"><strong>Grand Total: Rs. ${currentPayload.total.toLocaleString()}</strong></p>
-        <div style="text-align: center; margin-top: 15px; font-size: 11px; font-style: italic; color:#777;">
-          Paid Electronically via Mobile Gateway. Thank you for your order!
-        </div>
-      `;
-
-      receiptOverlay.classList.add("active");
-
-      // Clean application state metrics after successful processing hook
-      cart = [];
-      currentPayload = null;
-      document.getElementById("cartName").value = "";
-      document.getElementById("cartAddress").value = "";
-      document.getElementById("paymentMethod").value = "";
-      updateCartUI();
-    }
-
-    function printReceiptSlip() {
-      window.print();
-    }
-
-    function closeReceiptModal() {
-      receiptOverlay.classList.remove("active");
-    }
-
-    function sendGeneralInquiry() {
-      const name = document.getElementById("userName").value.trim();
-      const email = document.getElementById("userEmail").value.trim();
-      const message = document.getElementById("orderMessage").value.trim();
-
-      if (name === "" || message === "") {
-        alert("Please fill in your Name and Message details before submitting.");
-        return;
-      }
-
-      const phoneNumber = "9779816414020"; 
-      const textMessage = `*--- NEW GENERAL INQUIRY ---*%0A%0A` +
-                          `*Name:* ${name}%0A` +
-                          `*Email:* ${email || 'Not provided'}%0A%0A` +
-                          `*Message:*%0A${message}`;
-
-      const whatsAppUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(textMessage)}`;
-      window.open(whatsAppUrl, '_blank');
-      document.getElementById("orderForm").reset();
-    }
-
-    const filterButtons = document.querySelectorAll('.filter-buttons button');
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', function() {
-        filterButtons.forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-      });
-    });
-  </script>
 </body>
 </html>
